@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Term>
+
+@{
+    ViewData["Title"] = "Terms";
+}
+
+<h1>Terms</h1>
+
+<p>
+    <button class="button-73 text-decoration-none" role="button"> <a asp-action="Create">Create New term</a></button>
+
+    
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+        
+            <th>
+                Name
+            </th>
+            <th>
+                Code
+            </th>
+         
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Slug
+            </td>
+            
+           
+            <td>
+
+                <button class="button-68" role="button">
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit </a>
+                </button>
+
+
+                <button class="button-24 text-decoration-none" role="button">
+                    <a class="confirmDeletion" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </button>
+
+                
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

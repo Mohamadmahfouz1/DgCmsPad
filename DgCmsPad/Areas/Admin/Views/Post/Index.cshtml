@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Post>
+
+@{
+    ViewData["Title"] = "Posts";
+}
+
+<h1>Posts</h1>
+
+<p>
+    <button class="button-73 text-decoration-none" role="button">  <a asp-action="Create">Create New</a></button>
+
+   
+</p>
+<table class="table border">
+    <thead>
+       <tr>
+            <td>
+                Name
+            </td>
+         
+            <th>
+                Date
+            </th>
+            <th>
+                Category
+            </th>
+          
+            <th>
+                Image
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+         
+            <td>
+                @item.Name
+            </td>
+          
+            <td>
+                @item.Date.ToString("C2")
+            </td>
+            <td>
+                @item.Term.Name
+            </td>
+            <td>
+
+
+                <img src="~/media/posts/@item.Image" width="200" alt=" " />
+            </td>
+            <td>
+
+                <button class="button-68" role="button"> <a asp-action="Edit" asp-route-id="@item.Id">Edit </a></button>
+
+
+                <button class="button-68" role="button"> <a asp-action="Details" asp-route-id="@item.Id">Details </a> </button>
+
+
+
+                <button class="button-24 text-decoration-none" role="button"> <a class="confirmDeletion" asp-action="Delete" asp-route-id="@item.Id">Delete</a></button>
+
+
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

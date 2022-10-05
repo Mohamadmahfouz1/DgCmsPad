@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Post>
+@{
+    ViewData["Title"] = "Posts";
+}
+
+<h1 class="display-4 pb-5">News</h1>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-1">
+            <img src="~/media/posts/@item.Image" class="img-fluid"/>
+            <h4>@item.Name     </h4>
+            <div>
+                @Html.Raw(item.Details)
+            </div>
+            <p>
+                @item.Date.ToString("C2")
+            </p>
+
+        </div>
+    }
+</div>
